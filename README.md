@@ -1,3 +1,5 @@
+# NAME: LOKESH M
+# REGISTER NUMBER: 23001615
 # Experiment--05-Implementation-of-flipflops-using-verilog
 ### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
@@ -102,33 +104,107 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+Step 1: Open Quartus II and select new project and choose the file location.
 
+Step 2: Module Declaration. Module should have the file name.
+
+Step 3: Input-Output Delecaration.
+
+Step 4: Use assign declaration and wire to define the functionality of logic circuits.
+
+Step 5: At the end give endmodule.
+
+Step 6: Run the program and choose RTL viewer to get RTL realization.
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: M.Lokesh
+RegisterNumber: 23001615
 */
-
-
-
-
-
+# SR Flipflops:
+```
+module flop(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=S|((~R)&Q);
+Qbar=R|((~S)&(Qbar));
+end
+endmodule
+```
+# JK Flipflops:
+```
+module jk(q,qbar,k,j,clk);
+input j,k,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,j,clk,qbar);
+nand(nand2_out,k,clk,q);
+nand(q,nand1_out,qbar,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+```
+# T Flipflops:
+```
+module tff(t,qbar,q,clk);
+input t,clk;
+output q,qbar;
+wire n1,n2;
+nand(n1,t,clk,qbar);
+nand(n2,clk,t,q);
+nand(q,n1,qbar);
+nand(qbar,n2,q);
+endmodule
+```
+# D Flipflops:
+```
+module d(q,qbar,d1,clk);
+input d1,clk;
+output q,qbar;
+wire n1;
+wire n2;
+not(x,d1);
+nand(n1,clk,d1);
+nand(n2,clk,x);
+nand(q,n2,qbar);
+nand(qbar,n1,q);
+endmodule 
+```
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+# SR Flipflops:
+![rtlsrff](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/a811a28c-17b7-43d1-b5ae-44e719c49ba1)
 
+# JK Flipflops:
+![Screenshot 2023-12-20 183635](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/a2bb2b42-c21b-40fe-9bd6-6eb369b0dbb9)
 
+# T Flipflops:
+![trtl](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/af4dec18-85ce-463e-8691-ad95563bb1aa)
 
+# D Flipflops:
+![Screenshot 2023-12-20 185445](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/9348c931-66f2-4420-9433-cb992f2006a2)
 
+## TIMING DIAGRAMs FOR FLIPFLOPS:
 
+# SR Flipflops:
+![Sr-ff](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/b6187b69-9759-4587-9d04-81e890d8570a)
 
+# JK Flipflops:
+![jkwf](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/d1bce64d-c498-47f2-a2b9-537308346e02)
 
+# T Flipflops:
+![twv](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/7c49008b-a439-4ee9-86d4-88a51f6f4d43)
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+# D Flipflops:
+![dwv](https://github.com/Lokesh23001615/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144979337/09b33ae6-5805-4b40-9005-afc6fa09e31c)
 
 
 
@@ -138,3 +214,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Implementation-of-flipflops-using-verilog successfully completed.
