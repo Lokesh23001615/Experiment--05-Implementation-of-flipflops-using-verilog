@@ -1,5 +1,5 @@
-# NAME: LOKESH M
-# REGISTER NUMBER: 23001615
+# NAME: ASHWIN AKASH M
+# REGISTER NUMBER: 23009906
 # Experiment--05-Implementation-of-flipflops-using-verilog
 ### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
